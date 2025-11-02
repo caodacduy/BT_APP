@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MQuizez">
+        <activity
+            android:name=".activity.AddQuizActivity"
+            android:exported="false" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.HomeActivity" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

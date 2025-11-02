@@ -2,6 +2,7 @@ package com.example.mquizez.activity;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,9 +47,14 @@ public class LoginActivity extends AppCompatActivity {
                 User user = userRepository.login(email, password);
                 runOnUiThread(() -> {
                     if (user != null) {
+                        // LƯU ID VÀO SHARED PREFERENCES
+                        SharedPreferences sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putInt("user_id", user.getId()); // Lưu ID
+                        editor.putString("username", user.getUsername()); // Lưu username
+                        editor.apply(); // Lưu vào bộ nhớ
                         Toast.makeText(this, "Login success! Welcome " + user.getUsername(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        intent.putExtra("username", user.getUsername());
                         startActivity(intent);
                         finish();
                     } else {
