@@ -4,6 +4,7 @@ package com.example.mquizez.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ import com.example.mquizez.repository.QuizRepository;
 
 public class AddQuizActivity extends AppCompatActivity {
 
-    private EditText edtTitle, edtDescription;
+    private EditText edtTitle, edtDescription,edtQuestionCount;
     private Spinner spinnerCategory;
     private Button btnSave;
     private int selectedCategory = 1; // default Toán
@@ -33,6 +34,8 @@ public class AddQuizActivity extends AppCompatActivity {
 
         edtTitle = findViewById(R.id.edtTitle);
         edtDescription = findViewById(R.id.edtDescription);
+        edtQuestionCount = findViewById(R.id.edtQuestionCount);
+
         spinnerCategory = findViewById(R.id.spinnerCategory);
         btnSave = findViewById(R.id.btnSave);
 
@@ -60,14 +63,23 @@ public class AddQuizActivity extends AppCompatActivity {
     private void saveQuiz() {
         String title = edtTitle.getText().toString().trim();
         String description = edtDescription.getText().toString().trim();
+        String questionCountStr = edtQuestionCount.getText().toString().trim();
 
-        if (title.isEmpty() || description.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
+        if (title.isEmpty() || description.isEmpty() || questionCountStr.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int questionCount;
+        try {
+            questionCount = Integer.parseInt(questionCountStr);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Số câu hỏi không hợp lệ!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         SharedPreferences sharedPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
-        int createdBy = sharedPref.getInt("user_id", -1); // lưu id người dùng, nên sửa lại khi đăng nhập
+        int createdBy = sharedPref.getInt("user_id", -1);
         if (createdBy == -1) {
             Toast.makeText(this, "Không tìm thấy thông tin người dùng!", Toast.LENGTH_SHORT).show();
             return;
@@ -78,11 +90,19 @@ public class AddQuizActivity extends AppCompatActivity {
         quiz.setDescription(description);
         quiz.setCategoryId(selectedCategory);
         quiz.setCreatedBy(createdBy);
+        quiz.setQuestionCount(questionCount); // 👈 Gán số câu hỏi
 
         QuizRepository quizRepository = new QuizRepository(this);
-        quizRepository.insertQuiz(quiz);
-
-        Toast.makeText(this, "Thêm đề thi thành công!", Toast.LENGTH_SHORT).show();
-        finish();
+        quizRepository.insertQuiz(quiz, quizId -> {
+            runOnUiThread(() -> {
+                Toast.makeText(this, "Thêm đề thi thành công!", Toast.LENGTH_SHORT).show();
+                // chuyển sang màn hình thêm câu hỏi
+                Intent intent = new Intent(AddQuizActivity.this, AddQuestionActivity.class);
+                intent.putExtra("quizId", (int) quizId);
+                intent.putExtra("questionCount", questionCount);
+                startActivity(intent);
+                finish();
+            });
+        });
     }
 }

@@ -19,6 +19,13 @@
         android:inputType="textMultiLine"
         android:minLines="3"
         android:gravity="top" />
+    <EditText
+        android:id="@+id/edtQuestionCount"
+        android:hint="Số câu hỏi"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
     <Spinner
         android:id="@+id/spinnerCategory"

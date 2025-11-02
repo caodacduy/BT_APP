@@ -16,8 +16,19 @@ public class Quiz {
     @ColumnInfo(name = "category_id")
     private Integer categoryId;
 
+    public Integer getQuestionCount() {
+        return questionCount;
+    }
+
+    public void setQuestionCount(Integer questionCount) {
+        this.questionCount = questionCount;
+    }
+
     @ColumnInfo(name = "created_by")
     private Integer createdBy;
+
+    @ColumnInfo(name = "question_count")
+    private Integer questionCount;
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

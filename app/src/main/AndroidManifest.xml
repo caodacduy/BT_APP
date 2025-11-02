@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MQuizez">
         <activity
+            android:name=".activity.AddQuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.AddQuizActivity"
             android:exported="false" />
         <activity android:name=".activity.RegisterActivity" />

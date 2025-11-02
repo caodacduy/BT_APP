@@ -9,6 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.mquizez.DAO.QuestionDao;
 import com.example.mquizez.DAO.QuizDao;
 import com.example.mquizez.DAO.UserDao;
 import com.example.mquizez.model.Category;
@@ -17,7 +18,7 @@ import com.example.mquizez.model.Quiz;
 import com.example.mquizez.model.User;
 import com.example.mquizez.model.UserQuizAttempt;
 
-@Database(entities = {User.class, Category.class, Quiz.class, Question.class, UserQuizAttempt.class}, version = 3)
+@Database(entities = {User.class, Category.class, Quiz.class, Question.class, UserQuizAttempt.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
 
 
@@ -26,6 +27,8 @@ public abstract class AppDatabase extends RoomDatabase {
 //    public abstract QuizDao quizDao();
     // thêm các DAO khác
     public abstract QuizDao quizDao();
+
+    public abstract QuestionDao questionDao();
 
     private static volatile AppDatabase INSTANCE;
 

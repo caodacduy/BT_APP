@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.mquizez.AppDatabase;
 import com.example.mquizez.DAO.QuizDao;
 import com.example.mquizez.DAO.UserDao;
+import com.example.mquizez.model.Quiz;
 import com.example.mquizez.model.User;
 
 public class QuizRepository {
@@ -14,8 +15,16 @@ public class QuizRepository {
         quizDao= AppDatabase.getDatabase(context).quizDao();
     }
 
-    public void insertQuiz(com.example.mquizez.model.Quiz quiz) {
-        new Thread(() -> quizDao.insertQuiz(quiz)).start();
+    public void insertQuiz(Quiz quiz, OnQuizInsertListener listener) {
+        new Thread(() -> {
+            long id = quizDao.insertQuiz(quiz);
+            if (listener != null) {
+                listener.onQuizInserted(id);
+            }
+        }).start();
+    }
+    public interface OnQuizInsertListener {
+        void onQuizInserted(long quizId);
     }
     public void getQuizzesByCategory(int categoryId) {
         new Thread(() -> quizDao.getQuizzesByCategory(categoryId)).start();

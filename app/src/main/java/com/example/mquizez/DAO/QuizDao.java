@@ -12,8 +12,8 @@ import java.util.List;
 @Dao
 public interface QuizDao {
     @Insert
-    void insertQuiz(Quiz quiz);
-        @Query("SELECT * FROM quizzes WHERE category_id= :categoryId")
+    long insertQuiz(Quiz quiz);
+    @Query("SELECT * FROM quizzes WHERE category_id= :categoryId")
         List<Quiz> getQuizzesByCategory(int categoryId);
 
 }
