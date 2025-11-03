@@ -27,7 +27,9 @@ public class QuizDetailActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBackToList);
 
         // Nhận dữ liệu từ intent
+
         Intent intent = getIntent();
+        int quizId = intent.getIntExtra("quizId", -1);
         String title = intent.getStringExtra("title");
         String description = intent.getStringExtra("description");
         int questionCount = intent.getIntExtra("questionCount", 0);

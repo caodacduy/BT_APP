@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MQuizez">
         <activity
+            android:name=".activity.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.UserQuizAttemptRepository"
+            android:exported="false" />
+        <activity
             android:name=".activity.QuestionActivity"
             android:exported="false" />
         <activity

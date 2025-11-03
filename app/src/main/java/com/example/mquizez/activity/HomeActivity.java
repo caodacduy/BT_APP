@@ -90,6 +90,8 @@ public class HomeActivity extends AppCompatActivity {
     private void openHistoryActivity() {
         Toast.makeText(this, "Chuyển đến Lịch sử làm bài", Toast.LENGTH_SHORT).show();
         // Intent đến HistoryActivity
+        Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
+        startActivity(intent);
     }
 
     private void logout() {

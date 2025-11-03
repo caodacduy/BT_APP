@@ -12,6 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.mquizez.DAO.QuestionDao;
 import com.example.mquizez.DAO.QuizDao;
 import com.example.mquizez.DAO.UserDao;
+import com.example.mquizez.DAO.UserQuizAttemptDao;
 import com.example.mquizez.model.Category;
 import com.example.mquizez.model.Question;
 import com.example.mquizez.model.Quiz;
@@ -27,7 +28,7 @@ public abstract class AppDatabase extends RoomDatabase {
 //    public abstract QuizDao quizDao();
     // thêm các DAO khác
     public abstract QuizDao quizDao();
-
+    public abstract UserQuizAttemptDao userQuizAttemptDao();
     public abstract QuestionDao questionDao();
 
     private static volatile AppDatabase INSTANCE;

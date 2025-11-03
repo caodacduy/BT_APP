@@ -2,6 +2,8 @@ package com.example.mquizez.activity;
 
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -13,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mquizez.R;
 import com.example.mquizez.model.Question;
+import com.example.mquizez.model.UserQuizAttempt;
 import com.example.mquizez.repository.QuestionRepository;
+import com.example.mquizez.repository.UserQuizAttemptRepository;
 
 import java.util.List;
 
@@ -102,7 +106,26 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void finishQuiz() {
-        Toast.makeText(this, "Hoàn thành! Điểm của bạn: " + score + "/" + questionList.size(), Toast.LENGTH_LONG).show();
+        // Lưu kết quả
+        SharedPreferences sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE);
+        int userId = sharedPref.getInt("user_id", -1);
+        int quizId = getIntent().getIntExtra("quizId", -1);
+        String quizTitle = getIntent().getStringExtra("title");
+        UserQuizAttempt attempt = new UserQuizAttempt();
+        attempt.setUserId(userId); // nếu có user đăng nhập thì dùng ID thật
+        attempt.setQuizId(quizId);
+        attempt.setScore(score);
+        attempt.setStartedAt(System.currentTimeMillis());
+        attempt.setFinishedAt(System.currentTimeMillis());
+
+        UserQuizAttemptRepository repository = new UserQuizAttemptRepository(this);
+        repository.insertAttempt(attempt);
+
+        // Mở màn hình kết quả
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("score", score);
+        intent.putExtra("total", questionList.size());
+        startActivity(intent);
         finish();
     }
 }
