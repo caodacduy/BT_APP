@@ -82,6 +82,9 @@ public class HomeActivity extends AppCompatActivity {
     private void startQuizActivity(String subject) {
         Toast.makeText(this, "Bắt đầu bài kiểm tra: " + subject, Toast.LENGTH_SHORT).show();
         // Intent đến QuizActivity
+        Intent intent = new Intent(HomeActivity.this, QuizListActivity.class);
+        intent.putExtra("subject", subject);
+        startActivity(intent);
     }
 
     private void openHistoryActivity() {

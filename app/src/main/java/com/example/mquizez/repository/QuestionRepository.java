@@ -14,7 +14,9 @@ public class QuestionRepository {
     public QuestionRepository(Context context) {
         questionDao = AppDatabase.getDatabase(context).questionDao();
     }
-
+    public List<Question> getQuestionsByQuizId(int quizId) {
+        return questionDao.getQuestionsByQuizId(quizId);
+    }
     public void insertQuestion(Question question) {
         new Thread(() -> questionDao.insertQuestion(question)).start();
     }

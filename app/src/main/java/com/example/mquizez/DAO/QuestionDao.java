@@ -14,5 +14,5 @@ public interface QuestionDao {
     void insertQuestion(Question question);
 
     @Query("SELECT * FROM questions WHERE quiz_id = :quizId")
-    List<Question> getQuestionsByQuiz(int quizId);
+    List<Question> getQuestionsByQuizId(int quizId);
 }

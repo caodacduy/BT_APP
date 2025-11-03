@@ -8,6 +8,8 @@ import com.example.mquizez.DAO.UserDao;
 import com.example.mquizez.model.Quiz;
 import com.example.mquizez.model.User;
 
+import java.util.List;
+
 public class QuizRepository {
     private final QuizDao quizDao;
 
@@ -29,4 +31,9 @@ public class QuizRepository {
     public void getQuizzesByCategory(int categoryId) {
         new Thread(() -> quizDao.getQuizzesByCategory(categoryId)).start();
     }
+
+    public List<Quiz> getQuizzesByCategorySync(int categoryId) {
+        return quizDao.getQuizzesByCategory(categoryId);
+    }
+
 }
