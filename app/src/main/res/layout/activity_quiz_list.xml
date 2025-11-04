@@ -1,29 +1,56 @@
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="20dp"
+    android:background="#F8F9FC"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:id="@+id/btnBackHome"
-        android:text="← Quay lại trang chủ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="10dp"/>
+
+    <!-- Tiêu đề -->
     <TextView
         android:id="@+id/tvQuizTitle"
         android:text="Các đề trắc nghiệm"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="12dp"/>
+        android:textColor="#1A237E"
+        android:gravity="center"
+        android:background="#E8EAF6"
+        android:padding="12dp"
+        android:elevation="3dp"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
+    <!-- Danh sách quiz -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewQuizzes"
+        android:layout_below="@id/tvQuizTitle"
+        android:layout_above="@id/btnBackHome"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
-</LinearLayout>
+    <!-- Nút quay lại -->
+    <Button
+
+    android:id="@+id/btnBackHome"
+    android:text="← Quay lại trang chủ"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/white"
+        android:backgroundTint="#FF9800"
+
+        android:paddingHorizontal="20dp"
+    android:paddingVertical="12dp"
+    android:elevation="8dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginBottom="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>

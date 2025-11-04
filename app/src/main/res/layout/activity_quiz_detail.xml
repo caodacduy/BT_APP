@@ -1,48 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center_horizontal"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F8F9FC"
+    android:padding="20dp">
 
-    <TextView
-        android:id="@+id/tvQuizDetailTitle"
-        android:text="Tên đề"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/tvQuizDetailDescription"
-        android:text="Mô tả đề thi"
-        android:textSize="16sp"
-        android:layout_marginBottom="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/tvQuizDetailQuestionCount"
-        android:text="Số câu hỏi: 0"
-        android:textSize="16sp"
-        android:layout_marginBottom="24dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnStartQuiz"
-        android:text="Bắt đầu làm bài"
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-<!--        android:backgroundTint="@color/teal_700" />-->
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnBackToList"
-        android:text="Quay lại danh sách"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-<!--        android:backgroundTint="@color/purple_500" />-->
-</LinearLayout>
+        <!-- Thẻ chứa thông tin đề -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/bg_gradient_pink"
+            android:backgroundTint="@null"
+            android:elevation="8dp"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToOutline="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvQuizDetailTitle"
+                android:text="Tên đề"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#1A237E"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvQuizDetailDescription"
+                android:text="Mô tả đề thi"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvQuizDetailQuestionCount"
+                android:text="Số câu hỏi: 0"
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Nút bắt đầu (xanh dương) -->
+        <Button
+            android:id="@+id/btnStartQuiz"
+            android:text="🚀 Bắt đầu làm bài"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#2196F3"
+            android:paddingVertical="14dp"
+            android:elevation="6dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Nút quay lại (cam vàng) -->
+        <Button
+            android:id="@+id/btnBackToList"
+            android:text="← Quay lại danh sách"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF9800"
+            android:paddingVertical="14dp"
+            android:elevation="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
