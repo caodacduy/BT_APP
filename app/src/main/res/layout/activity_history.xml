@@ -1,18 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:background="@drawable/bg_gradient"
+    android:paddingTop="24dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
 
-    <Button
-        android:id="@+id/btnBackHome"
-        android:layout_width="wrap_content"
+    <!-- 1. Thanh tiêu đề -->
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="← Quay lại Home"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="24dp"
+        android:text="Lịch sử làm bài"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
+    <!-- 2. Danh sách lịch sử -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHistory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false" />
+
+    <Button
+        android:id="@+id/btnBackHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quay lại trang chủ"
+        android:backgroundTint="#616161"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
 </LinearLayout>

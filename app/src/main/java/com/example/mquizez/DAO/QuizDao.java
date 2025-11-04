@@ -15,5 +15,4 @@ public interface QuizDao {
     long insertQuiz(Quiz quiz);
     @Query("SELECT * FROM quizzes WHERE category_id= :categoryId")
         List<Quiz> getQuizzesByCategory(int categoryId);
-
 }

@@ -3,39 +3,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/bg_gradient"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <!-- 1. Tiêu đề chính -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Tạo Đề Thi Mới"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- 2. Form nhập liệu -->
+
+    <!-- Tên đề thi -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="Tên đề thi"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/edtTitle"
-        android:hint="Tên đề thi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Nhập tên đề thi..."
+        android:background="@drawable/edittext_bg"
+        android:padding="14dp"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Mô tả -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="Mô tả"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/edtDescription"
-        android:hint="Mô tả"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Nhập mô tả ngắn cho đề thi..."
+        android:background="@drawable/edittext_bg"
+        android:padding="16dp"
         android:inputType="textMultiLine"
-        android:minLines="3"
-        android:gravity="top" />
+        android:minHeight="100dp"
+        android:gravity="top"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Số câu hỏi -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="Số lượng câu hỏi"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
     <EditText
         android:id="@+id/edtQuestionCount"
-        android:hint="Số câu hỏi"
+        android:hint="Ví dụ: 10"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        android:background="@drawable/edittext_bg"
+        android:padding="14dp"
+        android:layout_marginBottom="20dp" />
+
+
+    <!-- Danh mục -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="Chọn danh mục"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/spinnerCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_bg"
+        android:padding="12dp"
+        android:layout_marginBottom="32dp" />
 
+    <!-- 3. Nút bấm hành động -->
     <Button
         android:id="@+id/btnSave"
-        android:text="Lưu đề thi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:backgroundTint="@color/accentColor"
+        android:padding="1dp"
+        android:layout_marginTop="240dp"
+        android:text="Lưu đề thi"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

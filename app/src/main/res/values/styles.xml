@@ -10,4 +10,18 @@
         <item name="android:textSize">15sp</item>
 <!--        <item name="android:hintTextColor">@color/textSecondary</item>-->
     </style>
+
+
+    <!-- Style cho các ô đáp án -->
+    <style name="AnswerOptionStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:background">@drawable/edittext_bg</item>
+        <item name="android:textColor">@color/primaryDarkColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:minHeight">120dp</item>
+    </style>
+
 </resources>

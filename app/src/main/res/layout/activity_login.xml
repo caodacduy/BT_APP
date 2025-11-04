@@ -25,13 +25,15 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/cardColor"
         card_view:cardCornerRadius="24dp"
-        card_view:cardElevation="10dp"
-        android:padding="24dp">
+        card_view:cardElevation="10dp">
+        <!-- Đã xóa padding="24dp" từ đây -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="24dp">
+            <!-- Thêm padding="24dp" vào đây để tạo khoảng trống bên trong Card -->
 
             <TextView
                 android:layout_width="match_parent"

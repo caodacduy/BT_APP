@@ -1,85 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_gradient"
     android:fillViewport="true"
-    android:background="@color/backgroundColor">
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:padding="24dp">
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/tvRegisterTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Create your account"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/textPrimary"
-            android:gravity="center"
-            android:layout_marginBottom="20dp" />
+        <!-- Logo (Thêm vào để đồng nhất) -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/logo_circle_bg"
+            android:contentDescription="@string/app_name"
+            android:padding="18dp"
+            android:src="@drawable/logo_quiz" />
 
-        <!-- Card / form container -->
+        <!-- Card đăng ký -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:padding="18dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            android:backgroundTint="@color/cardColor">
+            android:backgroundTint="@color/cardColor"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="10dp">
+            <!-- Đã xóa padding từ đây -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="24dp">
+                <!-- Thêm padding vào đây -->
+
+                <TextView
+                    android:id="@+id/tvRegisterTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Create Your Account"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtUsername"
-                    style="@style/InputStyle"
-                    android:hint="Username" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edittext_bg"
+                    android:drawableStart="@drawable/outline_account_circle_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Username"
+                    android:inputType="textPersonName"
+                    android:padding="14dp" />
 
                 <EditText
                     android:id="@+id/edtEmail"
-                    style="@style/InputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edittext_bg"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="10dp"
                     android:hint="Email"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:padding="14dp" />
 
                 <EditText
                     android:id="@+id/edtPassword"
-                    style="@style/InputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/edittext_bg"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="10dp"
                     android:hint="Password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:padding="14dp" />
 
-                <!-- Register button -->
+                <!-- Nút Đăng ký -->
                 <Button
                     android:id="@+id/btnRegister"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@drawable/btn_primary_bg"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/accentColor"
+                    android:padding="12dp"
                     android:text="Register"
                     android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
+                    android:textColor="@android:color/white" />
 
-                <!-- small helper text -->
+                <!-- Text đăng nhập -->
                 <TextView
                     android:id="@+id/tvHaveAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Already have an account? Login"
-                    android:textColor="@color/primaryColor"
                     android:gravity="center"
                     android:paddingTop="8dp"
-                    android:textSize="13sp" />
+                    android:text="Already have an account? Login"
+                    android:textColor="@color/primaryColor" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
