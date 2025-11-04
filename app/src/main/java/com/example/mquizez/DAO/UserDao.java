@@ -3,6 +3,7 @@ package com.example.mquizez.DAO;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.mquizez.model.User;
 
@@ -14,9 +15,14 @@ public interface UserDao {
     void insertUser(User user);
     @Query("SELECT * FROM users WHERE email = :email AND password = :password")
     User login(String email, String password);
+    @Query("SELECT * FROM users WHERE id = :id LIMIT 1")
+    User findById(int id);
 
     @Query("SELECT * FROM users WHERE email = :email")
     User findByEmail(String email);
     @Query("SELECT * FROM users")
     List<User> getAllUsers();
+
+    @Update
+    void updateUser(User user);
 }

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#3F51B5</color> <!-- Xanh tím quiz -->
+    <color name="primaryDarkColor">#303F9F</color>
+    <color name="accentColor">#FFB300</color> <!-- Vàng nổi bật -->
+
+    <!-- Phụ -->
+    <color name="backgroundColor">#F5F7FB</color>
+    <color name="cardColor">#FFFFFF</color>
+    <color name="correctColor">#4CAF50</color>
+    <color name="wrongColor">#E53935</color>
+    <color name="textPrimary">#222222</color>
+    <color name="textSecondary">#6B6B6B</color>
+    <color name="primaryDark">#303F9F</color>
+
 </resources>

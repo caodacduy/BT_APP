@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast; // Thêm Toast để hiển thị thông báo
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -21,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends AppCompatActivity {
 
     private TextView tvWelcome;
-    private Button btnMath, btnEnglish, btnHistory, btnHistoryScore;
+    private CardView btnMath, btnEnglish, btnHistory, btnHistoryScore;
     private ImageButton btnMenu;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -60,7 +61,8 @@ public class HomeActivity extends AppCompatActivity {
             int itemId = item.getItemId();
 
             if (itemId == R.id.nav_profile) {
-                Toast.makeText(this, "Thông tin cá nhân", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
 
             } else if (itemId == R.id.nav_history) {
                 openHistoryActivity();

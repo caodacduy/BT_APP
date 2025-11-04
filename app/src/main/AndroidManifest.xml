@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MQuizez">
         <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.HistoryActivity"
             android:exported="false" />
         <activity

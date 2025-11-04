@@ -2,9 +2,11 @@ package com.example.mquizez.activity;
 
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edtUsername, edtEmail, edtPassword;
     private Button btnRegister;
     private UserRepository userRepository;
+    private TextView btnBackToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnRegister = findViewById(R.id.btnRegister);
-
+        btnBackToLogin= findViewById(R.id.tvHaveAccount);
         btnRegister.setOnClickListener(v -> {
             String username = edtUsername.getText().toString();
             String email = edtEmail.getText().toString();
@@ -52,6 +55,9 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }).start();
         });
+        btnBackToLogin.setOnClickListener(v ->
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class))
+        );
     }
 }
 
