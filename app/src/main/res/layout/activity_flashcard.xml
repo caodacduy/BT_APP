@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:padding="24dp">
+
+    <!-- FrameLayout để chứa 2 mặt của thẻ, giúp lật qua lại -->
+    <FrameLayout
+        android:id="@+id/flashcardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true">
+
+        <!-- MẶT SAU CỦA THẺ (Định nghĩa) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardBack"
+            style="@style/FlashcardStyle"
+            android:alpha="0"> <!-- Ban đầu sẽ trong suốt -->
+
+            <LinearLayout style="@style/FlashcardContentLayout">
+                <TextView
+                    android:id="@+id/tvDefinition"
+                    style="@style/FlashcardTextStyle"
+                    android:text="Định nghĩa của từ"
+                    android:textSize="24sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- MẶT TRƯỚC CỦA THẺ (Từ vựng) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFront"
+            style="@style/FlashcardStyle">
+
+            <LinearLayout style="@style/FlashcardContentLayout">
+                <TextView
+                    android:id="@+id/tvTerm"
+                    style="@style/FlashcardTextStyle"
+                    android:text="Từ vựng"
+                    android:textSize="32sp" />
+
+                <TextView
+                    android:id="@+id/tvPronunciation"
+                    style="@style/FlashcardTextStyle"
+                    android:layout_marginTop="8dp"
+                    android:text="/phiên âm/"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+                <!-- Icon loa để phát âm thanh -->
+                <ImageButton
+                    android:id="@+id/btnAudio"
+                    android:layout_width="69dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Phát âm"
+                    android:src="@drawable/outline_books_movies_and_music_24"
+                    app:tint="@color/accentColor" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+    <!-- Các nút điều hướng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/correctColor"
+            android:text="Trước"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/accentColor"
+            android:text="Sau"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</RelativeLayout>

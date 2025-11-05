@@ -18,6 +18,11 @@
             android:icon="@android:drawable/ic_menu_recent_history" />
 
         <item
+            android:id="@+id/nav_manage_decks"
+            android:icon="@drawable/outline_cards_24"
+            android:title="Quản lý bộ thẻ" />
+
+        <item
             android:id="@+id/nav_logout"
             android:title="Đăng xuất"
             android:icon="@android:drawable/ic_lock_power_off" />

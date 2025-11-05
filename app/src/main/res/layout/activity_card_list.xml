@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:padding="24dp">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/tvDeckTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Các Thẻ trong Bộ"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- KHU VỰC TÌM KIẾM MỚI -->
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/tvDeckTitle"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:background="@drawable/bg_search_box"
+        android:elevation="4dp">
+
+        <!-- Ô nhập từ khóa -->
+        <EditText
+            android:id="@+id/edtSearchWord"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="Tìm từ tiếng Anh online..."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="8dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#B3FFFFFF"
+            android:textSize="16sp" />
+
+        <!-- Nút tìm kiếm -->
+        <ImageButton
+            android:id="@+id/btnSearchWord"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Tìm kiếm"
+            android:src="@drawable/outline_feature_search_24"
+            app:tint="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Cụm nút điều khiển ở dưới cùng -->
+    <LinearLayout
+        android:id="@+id/bottom_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Nút Bắt đầu học (chiếm phần lớn không gian) -->
+        <Button
+            android:id="@+id/btnStartLearning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accentColor"
+            android:paddingVertical="12dp"
+            android:text="Bắt đầu học"
+            android:textColor="@android:color/white" />
+
+        <!-- Nút Thêm thẻ mới (đặt bên phải) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:contentDescription="Thêm thẻ mới"
+            android:src="@drawable/outline_add_24"
+            app:backgroundTint="@color/accentColor"
+            app:tint="@android:color/white" />
+
+    </LinearLayout>
+
+    <!-- Danh sách thẻ (nằm giữa Tiêu đề và Cụm nút) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_controls"
+        android:layout_below="@id/tvDeckTitle"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="31dp" />
+
+</RelativeLayout>

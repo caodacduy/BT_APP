@@ -9,17 +9,23 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.mquizez.DAO.CardDao;
+import com.example.mquizez.DAO.DeckDao;
 import com.example.mquizez.DAO.QuestionDao;
 import com.example.mquizez.DAO.QuizDao;
 import com.example.mquizez.DAO.UserDao;
 import com.example.mquizez.DAO.UserQuizAttemptDao;
+import com.example.mquizez.DAO.DeckDao;
+import com.example.mquizez.DAO.CardDao;
+import com.example.mquizez.model.Deck;
+import com.example.mquizez.model.Card;
 import com.example.mquizez.model.Category;
 import com.example.mquizez.model.Question;
 import com.example.mquizez.model.Quiz;
 import com.example.mquizez.model.User;
 import com.example.mquizez.model.UserQuizAttempt;
 
-@Database(entities = {User.class, Category.class, Quiz.class, Question.class, UserQuizAttempt.class}, version = 4)
+@Database(entities = {User.class, Category.class, Quiz.class, Question.class, UserQuizAttempt.class, Deck.class, Card.class}, version = 5)
 public abstract class AppDatabase extends RoomDatabase {
 
 
@@ -30,6 +36,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract QuizDao quizDao();
     public abstract UserQuizAttemptDao userQuizAttemptDao();
     public abstract QuestionDao questionDao();
+    public abstract DeckDao deckDao();
+    public abstract CardDao cardDao();
 
     private static volatile AppDatabase INSTANCE;
 
@@ -52,6 +60,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                     Log.d("RoomTest", "✅ Database opened successfully!");
                                 }
                             })
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }

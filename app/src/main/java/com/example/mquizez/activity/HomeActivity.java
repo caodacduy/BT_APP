@@ -22,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends AppCompatActivity {
 
     private TextView tvWelcome;
-    private CardView btnMath, btnEnglish, btnHistory, btnHistoryScore;
+    private CardView btnMath, btnEnglish, btnHistory, btnHistoryScore, btnFlashcard;
     private ImageButton btnMenu;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -36,6 +36,8 @@ public class HomeActivity extends AppCompatActivity {
         btnMath = findViewById(R.id.btnMath);
         btnEnglish = findViewById(R.id.btnEnglish);
         btnHistory = findViewById(R.id.btnHistory);
+        btnFlashcard = findViewById(R.id.btnFlashcard);
+
 //        btnHistoryScore = findViewById(R.id.btnHistoryScore);
         btnMenu = findViewById(R.id.btnMenu);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -50,6 +52,11 @@ public class HomeActivity extends AppCompatActivity {
         btnMath.setOnClickListener(v -> startQuizActivity("Toán học"));
         btnEnglish.setOnClickListener(v -> startQuizActivity("Tiếng Anh"));
         btnHistory.setOnClickListener(v -> startQuizActivity("Lịch sử"));
+        btnFlashcard.setOnClickListener(v -> {
+            Toast.makeText(this, "FlashCard", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this, DeckListActivity.class);
+            startActivity(intent);
+        });
 //        btnHistoryScore.setOnClickListener(v -> openHistoryActivity());
 
         // Mở drawer
@@ -69,9 +76,12 @@ public class HomeActivity extends AppCompatActivity {
             } else if (itemId == R.id.nav_logout) {
                 logout();
             }
-
             else if (itemId== R.id.nav_add_question){
                 Intent intent = new Intent(HomeActivity.this, AddQuizActivity.class);
+                startActivity(intent);
+            }
+            else if (itemId == R.id.nav_manage_decks) {
+                Intent intent = new Intent(HomeActivity.this, DeckListActivity.class);
                 startActivity(intent);
             }
 

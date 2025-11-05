@@ -134,8 +134,47 @@
                                 android:textColor="@android:color/white"
                                 android:layout_marginTop="4dp" />
                         </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
+                <!-- Flashcard Learning -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnFlashcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    android:foreground="?attr/selectableItemBackground">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_gradient_green">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="24dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Level 2"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Học bằng flashCard"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/white"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
