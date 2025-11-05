@@ -35,5 +35,12 @@ public class QuizRepository {
     public List<Quiz> getQuizzesByCategorySync(int categoryId) {
         return quizDao.getQuizzesByCategory(categoryId);
     }
+    public List<Quiz> getQuizzesByUserSync(int userId) {
+        return quizDao.getQuizzesByUser(userId);
+    }
+
+    public void deleteQuizById(int quizId) {
+        new Thread(() -> quizDao.deleteQuizById(quizId)).start();
+    }
 
 }

@@ -31,7 +31,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         userRepository = new UserRepository(this);
 
-        // Lấy email người dùng từ SharedPreferences
         int userId = getSharedPreferences("UserSession", MODE_PRIVATE)
                 .getInt("user_id", -1);
 

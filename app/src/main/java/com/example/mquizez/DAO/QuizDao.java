@@ -15,4 +15,11 @@ public interface QuizDao {
     long insertQuiz(Quiz quiz);
     @Query("SELECT * FROM quizzes WHERE category_id= :categoryId")
         List<Quiz> getQuizzesByCategory(int categoryId);
+
+    @Query("SELECT * FROM quizzes WHERE created_by = :userId")
+    List<Quiz> getQuizzesByUser(int userId);
+
+    // ✅ Xóa quiz theo id
+    @Query("DELETE FROM quizzes WHERE id = :quizId")
+    void deleteQuizById(int quizId);
 }

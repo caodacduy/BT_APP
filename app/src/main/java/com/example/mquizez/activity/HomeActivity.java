@@ -84,6 +84,10 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(HomeActivity.this, DeckListActivity.class);
                 startActivity(intent);
             }
+            else if (itemId == R.id.nav_my_quizzes) {
+                Intent intent = new Intent(HomeActivity.this, MyQuizzesActivity.class);
+                startActivity(intent);
+            }
 
             drawerLayout.closeDrawer(GravityCompat.START);
 

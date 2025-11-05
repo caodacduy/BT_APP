@@ -12,5 +12,8 @@
     <color name="textPrimary">#222222</color>
     <color name="textSecondary">#6B6B6B</color>
     <color name="primaryDark">#303F9F</color>
-
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_gray">#666666</color>
+    <color name="red">#E53935</color>
 </resources>

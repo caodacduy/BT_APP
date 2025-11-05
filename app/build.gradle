@@ -54,7 +54,7 @@ dependencies {
     // ✅ Kotlin Coroutines (dùng cho suspend DAO)
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1"
     // Retrofit để gọi API
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
     // Gson Converter để chuyển đổi JSON sang Java Object
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 }

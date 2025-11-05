@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MQuizez">
+        <activity android:name=".activity.MyQuizzesActivity" />
+
         <activity
             android:name=".activity.CardListActivity"
             android:exported="false" />
